@@ -1,6 +1,7 @@
+const $ = (sel) => document.querySelector(sel);
+const $$ = (sel) => document.querySelectorAll(sel);
+
 document.addEventListener('DOMContentLoaded', () => {
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => document.querySelectorAll(sel);
 
   // Theme
   const savedTheme = localStorage.getItem('yeso-theme') || 'light';
