@@ -55,7 +55,7 @@ class AboutPage extends StatelessWidget {
           const SizedBox(height: 12),
           ScrollReveal(
             child: Text(
-              'Youth for Environment and Science Organization',
+              'Youth for Environment in Schools Organization',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 18,

@@ -68,7 +68,7 @@ class HomePage extends StatelessWidget {
           ScrollReveal(
             delay: const Duration(milliseconds: 400),
             child: Text(
-              'YES-O Club • Youth for Environment and Science Organization',
+              'YES-O Club • Youth for Environment in Schools Organization',
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: isWide ? 15 : 13,
