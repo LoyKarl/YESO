@@ -1,0 +1,29 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "Flutter Web (Chrome)",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["run", "-d", "chrome"],
+      "port": 8080
+    },
+    {
+      "name": "Flutter Web (Edge)",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["run", "-d", "edge"],
+      "port": 8080
+    },
+    {
+      "name": "Flutter Analyze",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["analyze"],
+      "port": 0
+    },
+    {
+      "name": "Flutter Build Web",
+      "runtimeExecutable": "flutter",
+      "runtimeArgs": ["build", "web"],
+      "port": 0
+    }
+  ]
+}
