@@ -1,9 +1,9 @@
 const APP_DATA = {
   stats: {
     treesPlanted: 110,
-    projectsCompleted: 48,
+    projectsCompleted: 3,
     studentVolunteers: 1500,
-    outreachActivities: 156,
+    outreachActivities: 0,
     wasteCollectedKg: 60,
   },
 
