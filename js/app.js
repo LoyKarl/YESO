@@ -24,17 +24,21 @@ document.addEventListener('DOMContentLoaded', () => {
   // Nav scroll
   window.addEventListener('scroll', () => {
     const nav = $('.nav');
-    if (window.scrollY > 60) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if (nav) {
+      if (window.scrollY > 60) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }
   });
 
   // Mobile nav
   const hamburger = $('#hamburger');
   const mobileNav = $('#mobileNav');
-  hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
-  mobileNav.querySelectorAll('a').forEach((a) =>
-    a.addEventListener('click', () => mobileNav.classList.remove('open'))
-  );
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => mobileNav.classList.toggle('open'));
+    mobileNav.querySelectorAll('a').forEach((a) =>
+      a.addEventListener('click', () => mobileNav.classList.remove('open'))
+    );
+  }
 
   // Active nav link on scroll
   const sections = $$('section[id]');
@@ -54,7 +58,52 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Scroll reveal
+  // Render all sections FIRST
+  renderEvents();
+  renderProjects();
+  renderGallery();
+  renderArticles();
+  renderTeam();
+  renderFunFact();
+
+  // THEN set up scroll reveal on .reveal elements (including newly created ones)
+  setupReveal();
+
+  // Stats counter
+  const statsBar = $('.stats-bar');
+  if (statsBar) {
+    const statsObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            $$('.stat-number').forEach((el) => {
+              const key = el.dataset.stat;
+              if (APP_DATA.stats[key] !== undefined) animateCounter(el, APP_DATA.stats[key]);
+            });
+            statsObserver.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+    statsObserver.observe(statsBar);
+  }
+
+  function animateCounter(el, target) {
+    let current = 0;
+    const increment = Math.ceil(target / 60) || 1;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = current.toLocaleString() + '+';
+    }, 20);
+  }
+});
+
+function setupReveal() {
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((e) => {
@@ -67,54 +116,17 @@ document.addEventListener('DOMContentLoaded', () => {
     { threshold: 0.1 }
   );
   $$('.reveal').forEach((el) => observer.observe(el));
-
-  // Stats counter
-  function animateCounter(el, target) {
-    let current = 0;
-    const increment = Math.ceil(target / 60);
-    const timer = setInterval(() => {
-      current += increment;
-      if (current >= target) {
-        current = target;
-        clearInterval(timer);
-      }
-      el.textContent = current.toLocaleString() + '+';
-    }, 20);
-  }
-  const statsObserver = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          $$('.stat-number').forEach((el) => {
-            const key = el.dataset.stat;
-            if (APP_DATA.stats[key] !== undefined) animateCounter(el, APP_DATA.stats[key]);
-          });
-          statsObserver.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.3 }
-  );
-  const statsBar = $('.stats-bar');
-  if (statsBar) statsObserver.observe(statsBar);
-
-  // Render sections
-  renderEvents();
-  renderProjects();
-  renderGallery();
-  renderArticles();
-  renderTeam();
-  renderFunFact();
-});
+}
 
 // Events
 function renderEvents() {
   const container = $('#eventsList');
   if (!container) return;
+
   const categories = [...new Set(APP_DATA.events.map((e) => e.category))];
   const filterBar = $('#eventFilters');
 
-  if (filterBar) {
+  if (filterBar && categories.length > 0) {
     filterBar.innerHTML = '<button class="chip active" data-cat="All">All</button>' +
       categories.map((c) => '<button class="chip" data-cat="' + c + '">' + c + '</button>').join('');
     filterBar.addEventListener('click', (e) => {
@@ -132,6 +144,7 @@ function renderEvents() {
 
 function renderEventsList(events) {
   const container = $('#eventsList');
+  if (!container) return;
   container.innerHTML = events
     .map(
       (ev) =>
@@ -209,6 +222,7 @@ function openLightbox(index) {
   galleryIndex = index;
   const lb = $('#lightbox');
   const item = APP_DATA.gallery[index];
+  if (!lb || !item) return;
   $('#lightboxImg').src = item.image;
   $('#lightboxCaption').textContent = item.title;
   lb.classList.add('open');
@@ -216,7 +230,8 @@ function openLightbox(index) {
 }
 
 function closeLightbox() {
-  $('#lightbox').classList.remove('open');
+  const lb = $('#lightbox');
+  if (lb) lb.classList.remove('open');
   document.body.style.overflow = '';
 }
 
@@ -268,7 +283,7 @@ function renderTeam() {
     .map(
       (m, i) =>
         '<div class="team-card reveal">' +
-          '<div class="avatar" style="background:' + ['#1565C0', '#42A5F5'][i] + '22;color:' + ['#1565C0', '#42A5F5'][i] + '">' + m.name.split(' ').map((n) => n[0]).join('') + '</div>' +
+          '<div class="avatar" style="background:' + ['#1565C0', '#42A5F5'][i % 2] + '22;color:' + ['#1565C0', '#42A5F5'][i % 2] + '">' + m.name.split(' ').map((n) => n[0]).join('') + '</div>' +
           '<div class="team-info"><h4>' + m.name + '</h4><p>' + m.role + '</p></div>' +
           '<span class="team-badge" style="background:rgba(21,101,192,0.1);color:var(--primary-blue)">Adviser</span>' +
         '</div>'
