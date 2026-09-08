@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YES-O | Youth for Environment in Schools Organization</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <img src="assets/images/logo2.jpg" alt="YES-O Logo">
+        YES-O
+      </a>
+      <div class="nav-links">
+        <a href="#home" class="active">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#education">Education</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+        <button class="theme-toggle" id="themeToggle">&#x1F319;</button>
+      </div>
+      <button class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <div class="hero-icon">&#x1F33F;</div>
+      <h1>Empowering Students to Protect the Environment Through Science and Action.</h1>
+      <p>Belison National Science High School</p>
+      <p class="subtitle">YES-O Club &bull; Youth for Environment in Schools Organization</p>
+      <div class="hero-buttons">
+        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contact Us</button>
+        <button class="btn-outline" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">Learn More</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stats-grid">
+      <div class="stat-item"><div class="stat-number" data-stat="studentVolunteers">0</div><div class="stat-label">Student Volunteers</div></div>
+      <div class="stat-item"><div class="stat-number" data-stat="treesPlanted">0</div><div class="stat-label">Trees Planted</div></div>
+      <div class="stat-item"><div class="stat-number" data-stat="projectsCompleted">0</div><div class="stat-label">Projects Completed</div></div>
+      <div class="stat-item"><div class="stat-number" data-stat="outreachActivities">0</div><div class="stat-label">Outreach Activities</div></div>
+      <div class="stat-item"><div class="stat-number" data-stat="wasteCollectedKg">0</div><div class="stat-label">Waste Collected (kg)</div></div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <h2>About YES-O</h2>
+        <p>Youth for Environment in Schools Organization</p>
+      </div>
+
+      <!-- Mission & Vision -->
+      <div class="card-grid" style="margin-bottom:40px">
+        <div class="card reveal">
+          <div class="mission-card">
+            <div class="mission-icon" style="background:rgba(46,125,50,0.1);color:var(--primary-green)">&#x1F3AF;</div>
+            <div>
+              <h3 style="margin-bottom:8px">Our Mission</h3>
+              <p style="font-size:14px;color:var(--text-secondary)">To empower students to become environmental stewards through science education, community action, and sustainable practices that protect our planet for future generations.</p>
+            </div>
+          </div>
+        </div>
+        <div class="card reveal">
+          <div class="mission-card">
+            <div class="mission-icon" style="background:rgba(21,101,192,0.1);color:var(--primary-blue)">&#x1F441;</div>
+            <div>
+              <h3 style="margin-bottom:8px">Our Vision</h3>
+              <p style="font-size:14px;color:var(--text-secondary)">A generation of environmentally conscious leaders who use science and innovation to create a sustainable and thriving world.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Values -->
+      <div class="section-header reveal" style="margin-bottom:24px"><h2>Core Values</h2></div>
+      <div class="values-grid" style="margin-bottom:40px">
+        <div class="value-card reveal">
+          <div class="value-icon" style="background:rgba(46,125,50,0.1);color:var(--primary-green)">&#x1F33F;</div>
+          <h3>Environmental Stewardship</h3>
+          <p>Protecting and preserving our natural resources for future generations.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon" style="background:rgba(21,101,192,0.1);color:var(--primary-blue)">&#x1F52C;</div>
+          <h3>Scientific Excellence</h3>
+          <p>Promoting evidence-based solutions to environmental challenges.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon" style="background:rgba(255,143,0,0.1);color:var(--warm-amber)">&#x1F465;</div>
+          <h3>Community Engagement</h3>
+          <p>Working together to create meaningful environmental impact.</p>
+        </div>
+        <div class="value-card reveal">
+          <div class="value-icon" style="background:rgba(76,175,80,0.1);color:var(--accent-green)">&#x267B;&#xFE0F;</div>
+          <h3>Sustainable Practices</h3>
+          <p>Embracing habits that reduce our ecological footprint.</p>
+        </div>
+      </div>
+
+      <!-- History -->
+      <div class="section-header reveal"><h2>Our Journey</h2><p>Milestones that shaped our organization</p></div>
+      <div class="timeline" style="margin-bottom:40px">
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2018</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">YES-O Club founded at Belison National Science High School</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2019</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">First tree planting event with 200 participants</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2020</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">Launched online environmental awareness campaigns</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2021</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">Won Regional Science &amp; Environment Competition</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2022</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">Expanded to 500+ active members</div>
+        </div>
+        <div class="timeline-item reveal">
+          <div class="timeline-year">2023</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">Implemented school-wide recycling program</div>
+        </div>
+      </div>
+
+      <!-- Team -->
+      <div class="section-header reveal"><h2>Our Team</h2><p>Meet our dedicated officers and advisers</p></div>
+      <h3 class="reveal" style="text-align:center;margin-bottom:16px;font-size:20px">Club Officers</h3>
+      <div class="team-grid" id="officersList" style="margin-bottom:32px"></div>
+      <h3 class="reveal" style="text-align:center;margin-bottom:16px;font-size:20px">Advisers</h3>
+      <div class="team-grid" id="advisersList"></div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events" style="background:var(--surface)">
+    <div class="container">
+      <div class="section-header reveal"><h2>Events &amp; Activities</h2><p>Participate in our environmental activities</p></div>
+      <div class="filter-bar" id="eventFilters"></div>
+      <div class="card-grid" id="eventsList"></div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header reveal"><h2>Gallery</h2><p>Moments captured from our events and activities</p></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">&#x2715;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="lightboxNav(-1)">&#x2039;</button>
+    <button class="lightbox-nav lightbox-next" onclick="lightboxNav(1)">&#x203A;</button>
+    <img id="lightboxImg" src="" alt="">
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
+
+  <!-- EDUCATION -->
+  <section id="education" style="background:var(--surface)">
+    <div class="container">
+      <div class="section-header reveal"><h2>Education Hub</h2><p>Learn about environmental topics</p></div>
+      <div class="card-grid" id="articlesList"></div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-header reveal"><h2>Our Projects</h2><p>Active initiatives making a difference</p></div>
+      <div class="card-grid" id="projectsList"></div>
+    </div>
+  </section>
+
+  <!-- FUN FACT -->
+  <div class="container" style="padding:40px 24px">
+    <div class="fun-fact reveal" id="funFact">
+      <div class="fun-fact-icon">&#x1F30D;</div>
+      <p>Loading fun fact...</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section id="contact" style="background:var(--surface)">
+    <div class="container">
+      <div class="section-header reveal"><h2>Contact Us</h2><p>Get in touch with YES-O</p></div>
+      <div class="contact-grid">
+        <div class="contact-info-card reveal">
+          <div class="contact-icon">&#x1F4CD;</div>
+          <div><h4>Location</h4><p>Belison National Science High School, Belison, Antique</p></div>
+        </div>
+        <div class="contact-info-card reveal">
+          <div class="contact-icon">&#x2709;&#xFE0F;</div>
+          <div><h4>Email</h4><p>yeso.bnshs@gmail.com</p></div>
+        </div>
+        <div class="contact-info-card reveal">
+          <div class="contact-icon">&#x1F4F1;</div>
+          <div><h4>Social Media</h4><p>Follow us on Facebook: YES-O BNSHS</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <h3>YES-O</h3>
+        <p>Youth for Environment in Schools Organization</p>
+        <p>Belison National Science High School</p>
+      </div>
+      <div>
+        <h3>Quick Links</h3>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#projects">Projects</a>
+      </div>
+      <div>
+        <h3>Resources</h3>
+        <a href="#education">Education Hub</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div>
+        <h3>Connect</h3>
+        <p>yeso.bnshs@gmail.com</p>
+        <p>Facebook: YES-O BNSHS</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 YES-O. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
